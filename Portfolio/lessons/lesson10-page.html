@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="../style.css">
+  <title>Lesson 10: Network Topologies</title>
+</head>
+<body class="lesson-page">
+  <div class="lesson-container">
+    <a href="../index.html#lessons" class="back-button">
+      <i class='bx bx-arrow-back'></i>
+      Back to Lessons
+    </a>
+
+    <div class="lesson-header">
+      <div class="lesson-number">LESSON 10</div>
+      <h1 class="lesson-title">Network Topologies</h1>
+      <p class="lesson-subtitle">Star, Mesh, Bus, Ring - Advantages and Applications</p>
+    </div>
+
+    <div class="lesson-main-content-wrapper">
+      
+      <img src="../images/madoka-full.png" alt="Madoka Kaname Lessons Side Image" class="lesson-side-image lesson-image-left">
+      
+      <div class="lesson-content">
+        <p>Network topology refers to the physical or logical arrangement of devices (nodes) and connections (links) in a computer network. The topology chosen for a network significantly impacts its performance, reliability, scalability, and cost. Understanding different topologies and their advantages helps network designers select appropriate configurations for specific requirements. Let's explore the major network topologies—star, mesh, bus, and ring—examining their characteristics, advantages, and typical applications.</p>
+
+        <h2>Star Topology: The Central Hub Approach</h2>
+
+        <p>In a star topology, all devices connect to a central hub or switch, with no direct connections between the peripheral devices.</p>
+        <ul>
+          <li>**Advantages:** It is easy to install, manage, and troubleshoot. If one peripheral device or cable fails, only that device is affected, and the rest of the network continues to function (fault isolation).</li>
+          <li>**Disadvantage:** The central hub or switch is a single point of failure. If the central device fails, the entire network goes down.</li>
+          <li>**Application:** Star topology is the most common arrangement for Local Area Networks (LANs) in homes and offices. </li>
+        </ul>
+
+        <h2>Bus Topology: The Shared Cable</h2>
+
+        <p>Bus topology uses a single cable, called a backbone or trunk, to which all devices are connected. Data transmissions travel along the backbone, accessible to all nodes.</p>
+        <ul>
+          <li>**Advantage:** It requires the least amount of cabling and is cost-effective for small networks.</li>
+          <li>**Disadvantages:** It is difficult to troubleshoot, and performance degrades as more devices are added because all devices share the bandwidth. Most critically, the entire network fails if the main cable breaks or a terminator fails. </li>
+        </ul>
+
+        <h2>Ring Topology: The Closed Loop</h2>
+
+        <p>In a ring topology, each device connects to exactly two other devices, forming a single closed loop. Data travels in one direction around the ring.</p>
+        <ul>
+          <li>**Advantage:** Data transmission is fast and deterministic because there are no collisions.</li>
+          <li>**Disadvantage:** A single break in the ring or the failure of one device can disrupt the entire network. Troubleshooting is also complex. </li>
+        </ul>
+
+        <h2>Mesh Topology: Maximum Redundancy</h2>
+
+        <p>Mesh topology connects devices with multiple redundant paths between nodes. In a full mesh topology, every device connects directly to every other device. Partial mesh provides multiple paths but not necessarily connections between. </p>
+        <ul>
+          <li>**Advantages:** Offers maximum reliability and fault tolerance; if one path fails, data can instantly reroute through another path. It is also highly secure.</li>
+          <li>**Disadvantages:** Requires extensive cabling, making it difficult to install and manage, and it is the most expensive topology.</li>
+          <li>**Application:** Primarily used for Wide Area Networks (WANs) and critical systems like military or financial infrastructures where data continuity is paramount.</li>
+        </ul>
+
+        <h2>Choosing the Right Topology</h2>
+
+        <p>Selecting a network topology requires balancing multiple factors: reliability requirements, budget constraints, physical layout, expected network traffic, scalability needs, and available technical expertise. Modern networks often combine topologies—for example, a star topology at the office level connecting to a mesh WAN structure, creating a hybrid topology that leverages the advantages of each approach.</p>
+
+        <h2>Conclusion</h2>
+
+        <p>Network topology fundamentally shapes network characteristics and performance. Star topology's centralized management and fault isolation make it ideal for most LANs despite single points of failure. Mesh topology's redundancy serves critical applications where reliability justifies additional complexity and cost. Understanding these topologies, their advantages, and their limitations enables informed decisions when designing, implementing, or troubleshooting networks.</p>
+      </div>
+
+      <img src="../images/homura-full.png" alt="Homura Akemi Lessons Side Image" class="lesson-side-image lesson-image-right">
+
+    </div>
+  </div>
+</body>
+</html>

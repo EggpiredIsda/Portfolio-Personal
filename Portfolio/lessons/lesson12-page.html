@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="../style.css">
+  <title>Lesson 12: HTML Personal Webpage</title>
+</head>
+<body class="lesson-page">
+  <div class="lesson-container">
+    <a href="../index.html#lessons" class="back-button">
+      <i class='bx bx-arrow-back'></i>
+      Back to Lessons
+    </a>
+
+    <div class="lesson-header">
+      <div class="lesson-number">LESSON 12</div>
+      <h1 class="lesson-title">HTML Personal Webpage Structure</h1>
+      <p class="lesson-subtitle">Basic HTML with Headings, Paragraphs, and Lists</p>
+    </div>
+
+    <div class="lesson-main-content-wrapper">
+      
+      <img src="../images/mami-full.png" alt="Mami Tomoe Lessons Side Image" class="lesson-side-image lesson-image-left">
+      
+      <div class="lesson-content">
+        <p>HTML (HyperText Markup Language) serves as the foundation of web development, providing the structural framework for web pages. Learning to create a basic personal webpage with HTML introduces fundamental concepts that underlie all web development. By understanding headings, paragraphs, lists, and other basic elements, you gain the ability to create structured, semantic content that browsers can display and search engines can understand. Let's explore how to build a simple personal webpage using these essential HTML elements.</p>
+
+        <h2>The Basic HTML Structure</h2>
+
+        <p>Every HTML document follows a standard structure. The document begins with a `DOCTYPE` declaration, followed by the `<html>` root element, which contains a `<head>` section (for metadata) and a `<body>` section (for visible content).</p>
+
+        <div class="code-block">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;My Personal Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Content goes here --&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+        </div>
+
+        <h2>Headings and Paragraphs</h2>
+
+        <p>Headings (`<h1>` through `<h6>`) structure your content hierarchically, defining major topics and sub-sections. Paragraphs (`<p>`) contain the main text content.</p>
+
+        <div class="code-block">
+&lt;h1&gt;My Personal Portfolio&lt;/h1&gt;
+&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Hello! I am an Information Technology student. This is my first web project.&lt;/p&gt;
+&lt;h2&gt;My Skills&lt;/h2&gt;
+&lt;p&gt;I am currently learning about data structures, networking, and web development.&lt;/p&gt;
+        </div>
+
+        <p>This hierarchical structure makes your content scannable and accessible. Users can quickly identify major topics, and the semantic meaning of headings also helps assistive technologies navigate your page effectively.</p>
+
+        <h2>Lists: Organizing Information</h2>
+
+        <p>Lists are crucial for presenting information clearly. HTML offers three types: unordered lists (`<ul>`) for bullet points, ordered lists (`<ol>`) for numbered sequences, and definition lists (`<dl>`).</p>
+
+        <div class="code-block">
+&lt;h3&gt;Courses Completed&lt;/h3&gt;
+&lt;ul&gt;
+    &lt;li&gt;Computer Programming 1&lt;/li&gt;
+    &lt;li&gt;Data Management&lt;/li&gt;
+    &lt;li&gt;IT Ethics&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Steps to Deploy&lt;/h3&gt;
+&lt;ol&gt;
+    &lt;li&gt;Write HTML.&lt;/li&gt;
+    &lt;li&gt;Style with CSS.&lt;/li&gt;
+    &lt;li&gt;Upload to server.&lt;/li&gt;
+&lt;/ol&gt;
+        </div>
+
+        <h2>Links and Images</h2>
+
+        <p>The `<a>` (anchor) tag creates hyperlinks to other pages or resources, and the `<img>` tags display images. You must include an `alt` attribute for images to ensure accessibility.</p>
+
+        <div class="code-block">
+&lt;a href="https://github.com/yourusername"&gt;Visit My GitHub&lt;/a&gt;
+
+&lt;img src="profile.jpg" alt="Profile photo of Jericho Quitoras"&gt;
+        </div>
+
+        <h2>Conclusion</h2>
+
+        <p>Creating a personal webpage with HTML teaches fundamental web development skills applicable to all web projects. Understanding how to structure content with headings, organize information in paragraphs and lists, and use semantic HTML elements provides the foundation for more advanced web development. While CSS will style your page and JavaScript will add interactivity, HTML provides the essential structure and meaning.</p>
+      </div>
+
+      <img src="../images/Mami-full2.png" alt="Mami Tomoe Action Lessons Side Image" class="lesson-side-image lesson-image-right">
+
+    </div>
+  </div>
+</body>
+</html>

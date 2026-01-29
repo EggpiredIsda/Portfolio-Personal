@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="../style.css">
+  <title>Lesson 4: Vending Machine Algorithm</title>
+</head>
+<body class="lesson-page">
+  <div class="lesson-container">
+    <a href="../index.html#lessons" class="back-button">
+      <i class='bx bx-arrow-back'></i>
+      Back to Lessons
+    </a>
+
+    <div class="lesson-header">
+      <div class="lesson-number">LESSON 4</div>
+      <h1 class="lesson-title">Vending Machine Algorithm</h1>
+      <p class="lesson-subtitle">Pseudocode and Flowchart for a Transaction</p>
+    </div>
+
+    <div class="lesson-main-content-wrapper">
+      
+      <img src="../images/madoka-full.png" alt="Madoka Kaname Lessons Side Image" class="lesson-side-image lesson-image-left">
+      
+      <div class="lesson-content">
+        <p>Vending machines are ubiquitous automated systems that we encounter regularly in schools, offices, and public spaces. While they may seem simple on the surface, these machines execute a series of logical steps to complete each transaction successfully. Understanding how to break down this real-world process into pseudocode and flowcharts provides valuable insight into algorithmic thinking and system design—skills fundamental to computer programming and information systems.</p>
+
+        <h2>Understanding the Process</h2>
+
+        <p>A vending machine transaction involves several distinct phases: initialization, user selection, payment processing, validation, product dispensing, and change calculation and refund. The complexity lies in ensuring the machine handles all possible outcomes, particularly errors (e.g., insufficient funds, product sold out, jam), appropriately. For example, if a user walks away after inserting.</p>
+
+        <h2>The Algorithm in Pseudocode</h2>
+
+        <p>Pseudocode is an informal, high-level description of a computer program's operating principle, used to aid human understanding. Below is a simplified pseudocode for a vending machine transaction:</p>
+
+        <div class="code-block">
+// Initialization Phase
+INITIALIZE totalInserted = 0
+INITIALIZE changeDue = 0
+LOAD inventory
+DISPLAY "Welcome! Select a product."
+
+// Product Selection Phase
+WAIT FOR selection (selectedItem, itemPrice)
+IF selectedItem IS NOT AVAILABLE OR itemPrice > maxPossibleTransaction THEN
+  DISPLAY "Invalid Selection or Item Out of Stock."
+  GOTO Product Selection Phase
+ELSE
+  DISPLAY "Please insert $itemPrice"
+
+// Payment Processing Phase
+LOOP UNTIL totalInserted >= itemPrice
+  ACCEPT coinOrBill (value)
+  IF value IS VALID THEN
+    totalInserted = totalInserted + value
+    DISPLAY "Inserted: $totalInserted"
+  ELSE
+    DISPLAY "Invalid Currency. Returning $value"
+    RETURN value
+  END IF
+END LOOP
+
+// Dispensing and Change Phase
+IF totalInserted >= itemPrice THEN
+  changeDue = totalInserted - itemPrice
+  IF changeDue > 0 AND changeAvailable >= changeDue THEN
+    DISPENSE changeDue
+    DISPLAY "Change: $changeDue"
+    GOTO Product Dispensing Phase
+  ELSE IF changeDue > 0 AND changeAvailable < changeDue THEN
+    DISPLAY "Cannot dispense change. Refunding..."
+    DISPENSE totalInserted
+    GOTO Product Selection Phase
+  END IF
+// Product Dispensing Phase
+ACTIVATE motor for selectedItem
+DISPENSE product
+IF product successfully dispensed THEN
+  DISPLAY "Thank you! Enjoy your selectedItem."
+ELSE
+  DISPLAY "ERROR: Product Jammed. Refunding $totalInserted"
+  DISPENSE totalInserted
+END IF
+END IF
+// End Transaction
+        </div>
+        
+        <h2>Flowchart: Visualizing the Logic</h2>
+
+        <p>A flowchart visually represents the sequence and control flow of the algorithm using standard symbols.  The oval symbol denotes the start and end of the process, parallelograms are used for input/output (like accepting coins or displaying messages), rectangles represent processes (like calculating change), and diamonds indicate decision points (like checking if the item is sold out). The visual nature of the flowchart makes it easy to trace the logic path under different scenarios.</p>
+
+        <h2>Real-World Systems and Automation</h2>
+
+        <p>Modern vending machines are sophisticated systems that do more than just dispense products; they also track inventory, monitor internal temperatures, and communicate wirelessly to report maintenance needs. Some even use machine learning to predict which products will sell best at different times of day and adjust pricing dynamically.</p>
+
+        <h2>Learning Value</h2>
+
+        <p>Creating pseudocode and flowcharts for a vending machine transaction teaches several important programming concepts. It demonstrates sequence (steps executed in order), selection (decisions based on conditions), and iteration (repeating steps until a condition is met). It shows the importance of validation and error handling in creating robust systems. Most importantly, it illustrates how complex real-world processes can be broken down into simple, logical steps that a computer can execute—a fundamental skill in all areas of programming and system design.</p>
+
+        <h2>Conclusion</h2>
+
+        <p>The vending machine algorithm, while seemingly simple, incorporates many principles of good software design: clear logic flow, thorough input validation, comprehensive error handling, and careful state management. By studying this everyday system, we gain insights into how programmers think about problems and design solutions. Whether you're building a simple application or a complex enterprise system, the same principles apply: break the problem into steps, handle inputs and outputs carefully, anticipate errors, and guide users through the process smoothly. The humble vending machine, in this way, serves as an excellent introduction to algorithmic thinking and system design.</p>
+      </div>
+
+      <img src="../images/homura-full.png" alt="Homura Akemi Lessons Side Image" class="lesson-side-image lesson-image-right">
+
+    </div>
+  </div>
+</body>
+</html>

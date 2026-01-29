@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="../style.css">
+  <title>Lesson 5: Number Systems - Converting 25</title>
+</head>
+<body class="lesson-page">
+  <div class="lesson-container">
+    <a href="../index.html#lessons" class="back-button">
+      <i class='bx bx-arrow-back'></i>
+      Back to Lessons
+    </a>
+
+    <div class="lesson-header">
+      <div class="lesson-number">LESSON 5</div>
+      <h1 class="lesson-title">Number Systems: 25 in Binary & Hexadecimal</h1>
+      <p class="lesson-subtitle">Manual Conversion Walkthrough</p>
+    </div>
+
+    <div class="lesson-main-content-wrapper">
+      
+      <img src="../images/sayaka-full.png" alt="Sayaka Miki Lessons Side Image" class="lesson-side-image lesson-image-left">
+      
+      <div class="lesson-content">
+        <p>Understanding different number systems is fundamental to computer science because computers operate using binary (base-2) rather than the decimal (base-10) system we use in everyday life. Hexadecimal (base-16) serves as a convenient shorthand for representing binary values in a more human-readable format. By learning to convert between these systems, we gain insight into how computers represent and process data at the most basic level. Let's explore this by converting the decimal number 25 into both binary and hexadecimal formats.</p>
+
+        <h2>Understanding Number Systems</h2>
+
+        <p>Before beginning the conversion, it's essential to grasp the concept of positional notation, where the position of a digit determines its value. In base-10 (decimal), positions represent powers of 10 (1s, 10s, 100s, etc.). In base-2 (binary), positions represent powers of 2 (1, 2, 4, 8, 16, etc.). In base-16 (hexadecimal), positions represent powers of 16 (1, 16, 256, etc.), and we use the digits 0-9 and the letters A-F to represent the values 10 through 15.</p>
+
+        <h2>Conversion to Binary (Base-2)</h2>
+
+        <p>The standard method for converting a decimal integer to binary is the **division-remainder method**:</p>
+        <ol>
+          <li>Divide the decimal number (25) by the new base (2).</li>
+          <li>Record the remainder (which will be the binary digit).</li>
+          <li>Repeat the process with the quotient until the quotient is zero.</li>
+          <li>The binary result is the sequence of remainders read from bottom to top (last remainder is the first digit).</li>
+        </ol>
+        <p>For 25:</p>
+        <ul>
+          <li>25 ÷ 2 = 12 remainder **1** (Least Significant Bit)</li>
+          <li>12 ÷ 2 = 6 remainder **0**</li>
+          <li>6 ÷ 2 = 3 remainder **0**</li>
+          <li>3 ÷ 2 = 1 remainder **1**</li>
+          <li>1 ÷ 2 = 0 remainder **1** (Most Significant Bit)</li>
+        </ul>
+        <p>Reading the remainders from bottom to top, the binary equivalent of 25 is **11001**.</p>
+
+        <h3>Verification</h3>
+        <p>To verify the result, multiply each binary digit by its corresponding power of 2 and sum the products:</p>
+        <div class="code-block">
+(1 * 2^4) + (1 * 2^3) + (0 * 2^2) + (0 * 2^1) + (1 * 2^0)
+= (1 * 16) + (1 * 8) + (0 * 4) + (0 * 2) + (1 * 1)
+= 16 + 8 + 0 + 0 + 1 = 25.
+        </div>
+        <p>This confirmation step is crucial when learning conversions, as it helps catch errors and reinforces understanding of how positional notation works in different bases.</p>
+
+        <h2>Conversion to Hexadecimal (Base-16)</h2>
+
+        <p>We use the same division-remainder method, but divide by 16:</p>
+        <ul>
+          <li>25 ÷ 16 = 1 remainder **9** (Least Significant Digit)</li>
+          <li>1 ÷ 16 = 0 remainder **1** (Most Significant Digit)</li>
+        </ul>
+        <p>Reading the remainders from bottom to top, the hexadecimal equivalent of 25 is **19**.</p>
+
+        <h3>Verification</h3>
+        <p>To verify, we calculate the decimal value of 19 base-16:</p>
+        <div class="code-block">
+(1 * 16^1) + (9 * 16^0)
+= (1 * 16) + (9 * 1)
+= 16 + 9 = 25.
+        </div>
+
+        <h3>Conversion via Binary (Alternative Method)</h3>
+        <p>A convenient way to find the hexadecimal equivalent from binary is to group the binary digits into sets of four (called a nibble), starting from the right, and convert each group to its hex digit:</p>
+        <div class="code-block">
+Binary: 1 1001 (Pad the leftmost digit to make 4 bits: 0001 1001)
+
+Group 1 (1001) = 9 in Decimal/Hex
+Group 2 (0001) = 1 in Decimal/Hex
+
+Result: 19
+        </div>
+        <p>This method illustrates why hexadecimal is so commonly used in computing—it provides a compact way to represent binary values.</p>
+
+        <h2>Conclusion</h2>
+
+        <p>Converting the decimal number 25 to binary (11001) and hexadecimal (19) demonstrates the fundamental process of working with different number systems. The division-remainder method provides a reliable algorithm for conversion, while verification through place-value calculation confirms our results. These skills are essential for anyone studying computer science, as they provide insight into how computers represent data and help us communicate effectively about low-level computer operations. Whether you're examining memory addresses, debugging code, or understanding data storage, facility with binary and hexadecimal number systems will prove invaluable throughout your computing career.</p>
+      </div>
+
+      <img src="../images/kyoko-full.png" alt="Kyoko Sakura Lessons Side Image" class="lesson-side-image lesson-image-right">
+
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="../style.css">
+  <title>Lesson 9: Student Information Database</title>
+</head>
+<body class="lesson-page">
+  <div class="lesson-container">
+    <a href="../index.html#lessons" class="back-button">
+      <i class='bx bx-arrow-back'></i>
+      Back to Lessons
+    </a>
+
+    <div class="lesson-header">
+      <div class="lesson-number">LESSON 9</div>
+      <h1 class="lesson-title">Student Information Database</h1>
+      <p class="lesson-subtitle">Organization and Data Fields</p>
+    </div>
+
+    <div class="lesson-main-content-wrapper">
+      
+      <img src="../images/mami-full.png" alt="Mami Tomoe Lessons Side Image" class="lesson-side-image lesson-image-left">
+      
+      <div class="lesson-content">
+        <p>A student information database serves as the digital backbone of modern educational institutions, centralizing all student-related data in an organized, accessible, and secure system. These databases transform how schools manage information, replacing scattered paper records and spreadsheets with integrated systems that support everything from enrollment to graduation. Understanding how these databases are organized and what data fields they contain provides insight into database design principles applicable across many industries.</p>
+
+        <h2>Database Structure and Organization</h2>
+
+        <p>Student information databases typically use a relational database model, organizing data into interconnected tables that minimize redundancy while maintaining data integrity. The central table, often called the "Students" table, contains core demographic and identification information for each student. This table uses a unique identifier—usually a student ID number—as its primary key, ensuring each record remains distinct even if students share the same name or other characteristics.</p>
+
+        <p>Related tables connect to this central Students table through foreign keys, creating relationships that allow the database to store complex information efficiently. For example, an "Enrollment" table links students to their current classes, a "Grades" table records academic performance, an "Attendance" table tracks presence and absences, and a "Contact" table maintains parent and guardian information. This relational structure eliminates data duplication; rather than storing a student's name in every grade record, the system stores it once in the Students table and references it through the student ID.</p>
+
+        <h2>Essential Data Fields</h2>
+
+        <h3>Personal Information</h3>
+        <p>The database captures comprehensive personal details including full legal name (often stored as separate fields for first name, middle name, last name, and any suffixes), date of birth, gender, home address (broken into street address, city, state, and ZIP code fields for easier sorting and searching), and contact information including phone numbers and email addresses. A photograph field might store the student's ID photo for visual identification. These fields enable the school to identify, contact, and properly address each student.</p>
+
+        <h3>Academic Information</h3>
+        <p>Academic data fields track educational progress and performance. Grade level indicates the student's current year (freshman, sophomore, junior, senior, or equivalent). Enrollment date marks when the student joined the school, while expected graduation date projects completion. The major or program of study field identifies the student's chosen academic focus. GPA (Grade Point Average) fields might include cumulative GPA, semester GPA, and weighted versus unweighted calculations. Class rank compares the student's performance to peers. Credits earned and credits required track progress toward graduation requirements.</p>
+
+        <h3>Course and Schedule Data</h3>
+        <p>While typically stored in related tables, course information connects closely to student records. The database tracks current course enrollments, including course codes, section numbers, and assigned teachers. Historical course completion records preserve the student's complete academic history. Schedule information specifies class periods, room numbers, and meeting times. This data enables automated schedule generation, conflict detection, and transcript production.</p>
+
+        <h3>Attendance and Behavior</h3>
+        <p>Attendance fields record daily presence, tardiness, and absences, often categorized as excused or unexcused. Date stamps track when attendance is taken and by whom. Behavioral data might include disciplinary incidents, detentions, suspensions, and positive behavior recognitions. These records help identify patterns requiring intervention and provide documentation for administrative decisions.</p>
+
+        <h3>Health and Special Services</h3>
+        <p>Health-related fields document allergies, medical conditions, required medications, and emergency medical information. Special education status, IEP (Individualized Education Program) information, and accommodation requirements ensure students receive appropriate support. English Language Learner status and related services might be tracked. Free or reduced lunch eligibility, transportation needs, and other support services are also documented.</p>
+
+        <h3>Parent and Guardian Information</h3>
+        <p>Contact information for parents and guardians includes names, relationships to the student, home and work phone numbers, email addresses, and physical addresses. Emergency contact prioritization specifies who to contact in what order. Custody information might be included for students from separated or divorced families, indicating who has legal authority to make educational decisions or pick up the student.</p>
+
+        <h2>Data Security and Privacy</h2>
+
+        <p>Student databases must implement strict security measures to protect sensitive information. Access controls limit who can view or modify different data fields—teachers might see grades and attendance but not social security numbers or detailed health information. Audit logs track who accesses student records and when, ensuring accountability. Encryption protects data both at rest and in transit. Schools must comply with laws like FERPA (Family Educational Rights and Privacy Act) that regulate student data privacy.</p>
+
+        <h2>Benefits and Applications</h2>
+
+        <p>A well-designed student database enables numerous beneficial applications. Automated report card generation pulls grades, attendance, and comments into formatted reports. Transcript production compiles complete academic histories for college applications. Early warning systems identify students at risk of failing based on grades and attendance patterns. Parent portals provide real-time access to student progress. Administrative reports analyze school-wide trends in enrollment, performance, and demographics. State and federal reporting requirements can be met through automated data extraction.</p>
+
+        <h2>Conclusion</h2>
+
+        <p>Student information databases represent sophisticated applications of database design principles, balancing comprehensive data storage with accessibility, security, and usability. The carefully structured organization of tables and fields, the relationships between different data elements, and the security measures protecting sensitive information all exemplify best practices in database management. Whether you're designing a student system, a customer database, or any other data management solution, the principles demonstrated in student information databases—normalized structure, appropriate field selection, relationship design, and security implementation—provide a strong foundation for effective database design. As schools increasingly rely on data-driven decision making, these databases become ever more critical to educational success, making their proper design and maintenance essential skills for IT professionals in the education sector.</p>
+      </div>
+
+      <img src="../images/Mami-full2.png" alt="Mami Tomoe Action Lessons Side Image" class="lesson-side-image lesson-image-right">
+
+    </div>
+  </div>
+</body>
+</html>

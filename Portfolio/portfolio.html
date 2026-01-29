@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jericho Quitoras - Portfolio</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"> 
+</head>
+<body> 
+  
+  <div id="start-screen">
+      <div id="starfield"></div> <canvas id="magic-canvas"></canvas> 
+      
+      <button id="madoka-link" class="madoka-container" aria-label="Click to begin viewing portfolio" type="button">
+          <img src="images/madokami-full.png" alt="Ultimate Madoka - Click to Begin" class="madoka-img">
+      </button>
+
+      <div class="japanese-quote">
+          「私が、みんなの希望になってもいいの？」
+          <br>
+          (Watashi ga, minna no kibō ni natte mo ii no?)
+          <br>
+          — Madoka Kaname
+      </div>
+  </div>
+  <div id="main-portfolio-content">
+      
+      <nav class="sidebar" role="navigation" aria-label="Main navigation">
+        <button class="sidebar-mami-wrapper" id="mami-landing-button" aria-label="Return to landing page" type="button"> 
+          <img src="images/Mami Top_Nav Bar.png" alt="Mami Tomoe Profile Image" class="sidebar-mami-img interactive-element">
+        </button>
+        <div class="sidebar-section">
+          <h3 class="sidebar-title">NAVIGATION</h3>
+          <a href="#header" class="sidebar-button interactive-element" aria-label="Navigate to Home section"><i class='bx bxs-home-alt-2' aria-hidden="true"></i> Home <span>- ホーム</span></a>
+          <a href="#about" class="sidebar-button interactive-element" aria-label="Navigate to About section"><i class='bx bxs-user' aria-hidden="true"></i> About <span>- 自己紹介</span></a>
+          <a href="#lessons" class="sidebar-button interactive-element" aria-label="Navigate to Lessons section"><i class='bx bxs-book-content' aria-hidden="true"></i> Lessons <span>- 授業</span></a>
+          <a href="#contact" class="sidebar-button interactive-element" aria-label="Navigate to Contact section"><i class='bx bxs-contact' aria-hidden="true"></i> Contact <span>- 連絡先</span></a>
+        </div>
+        </nav>
+
+      <div class="main-content">
+        <header id="header" class="content-box">
+          <div class="profile-box">
+            <img src="images/Profile_Pic.png" alt="Jericho Quitoras Profile Photo" class="profile-img">
+            <h1>Jericho B. Quitoras</h1>
+            <p>Information Technology Student - 1st Year</p>
+          </div>
+        </header>
+
+        <section id="about" class="content-box">
+          <h2 class="section-title">About Me</h2>
+          <div class="about-container">
+            <div class="about-content">
+              <p>I am a highly motivated first-year Bachelor of Science in Information Technology (BSIT) student at the University of San Carlos – Talamban Campus, committed to building a strong academic and practical foundation in the field of information technology. My studies focus on understanding both the theoretical and applied aspects of computing, with particular emphasis on web development, data management, and ethical computing practices.
+
+My academic journey is driven by a strong interest in how technology can transform raw data into meaningful, actionable insights and how well-designed systems can provide reliable and secure digital solutions. I place great importance on data integrity, user privacy, and cybersecurity principles, and I strive to incorporate these values into every project and activity I undertake. Through my coursework and personal learning initiatives, I aim to develop systems that are not only functional but also responsible and sustainable.</p>
+              <p>I have developed foundational skills in HTML, CSS, and JavaScript, which I use to create responsive, user-centered web interfaces that prioritize usability, clarity, and efficiency. In addition, I work with database systems to manage, organize, and retrieve information effectively, ensuring accuracy and performance in data-driven applications. To further strengthen my understanding of programming fundamentals and low-level logic, I am currently learning the C programming language, which has helped me improve my problem-solving skills, algorithmic thinking, and appreciation for how software interacts with hardware.
+
+Beyond technical skills, I am passionate about leveraging technology to address real-world challenges and improve everyday processes. I enjoy exploring innovative ideas, experimenting with new tools, and continuously refining my skills through hands-on projects, collaboration, and self-directed learning. I value clean, efficient, and maintainable code, and I strive to follow best practices in software development and system design.</p>
+              <p>As an aspiring IT professional, I am eager to gain practical experience, contribute to meaningful projects, and learn from industry professionals and peers alike. I am actively seeking opportunities that will allow me to apply my growing technical skill set, strengthen my analytical and creative thinking, and further develop into a competent, ethical, and forward-thinking member of the technology community.</p>
+            </div>
+            <a href="https://mangadex.org/title/c52565c9-d99a-4380-9dc8-67369d448eb7/mahou-shoujo-madoka-magica" target="_blank" rel="noopener noreferrer" class="about-image about-image-link" aria-label="View Mahou Shoujo Madoka Magica on MangaDex">
+              <img src="images/madoka-full_main.png" alt="Madoka Kaname - Click to view on MangaDex" class="interactive-element">
+            </a>
+          </div>
+        </section>
+
+        <section id="lessons" class="content-box">
+          <h2 class="section-title">Intro to Computing - Lesson Summaries </h2>
+          <div class="lessons-grid">
+            <a href="lessons/lesson1-page.html" class="lesson-card interactive-element" aria-label="View Lesson 1: Data, Information, and Knowledge">
+              <img src="images/symbol-lessons.jpg" alt="Lesson 1 Icon" class="lesson-symbol-img">
+              <h3>Lesson 1</h3>
+              <p>Data, Information, and Knowledge</p>
+            </a>
+            <a href="lessons/lesson2-page.html" class="lesson-card interactive-element" aria-label="View Lesson 2: AI & Cybersecurity">
+              <img src="images/symbol-lessons.jpg" alt="Lesson 2 Icon" class="lesson-symbol-img">
+              <h3>Lesson 2</h3>
+              <p>AI & Cybersecurity</p>
+            </a>
+            <a href="lessons/lesson3-page.html" class="lesson-card interactive-element" aria-label="View Lesson 3: Computer Systems in Healthcare">
+              <img src="images/symbol-lessons.jpg" alt="Lesson 3 Icon" class="lesson-symbol-img">
+              <h3>Lesson 3</h3>
+              <p>Computer Systems in Healthcare</p>
+            </a>
+            <a href="lessons/lesson4-page.html" class="lesson-card interactive-element" aria-label="View Lesson 4: Vending Machine Algorithm">
+              <img src="images/symbol-lessons.jpg" alt="Lesson 4 Icon" class="lesson-symbol-img">
+              <h3>Lesson 4</h3>
+              <p>Vending Machine Algorithm</p>
+            </a>
+            <a href="lessons/lesson5-page.html" class="lesson-card interactive-element" aria-label="View Lesson 5: Number Systems Conversion">
+              <img src="images/symbol-lessons.jpg" alt="Lesson 5 Icon" class="lesson-symbol-img">
+              <h3>Lesson 5</h3>
+              <p>Number Systems Conversion (25)</p>
+            </a>
+            <a href="lessons/lesson6-page.html" class="lesson-card interactive-element" aria-label="View Lesson 6: General vs. Specific Purpose Software">
+              <img src="images/symbol-lessons.jpg" alt="Lesson 6 Icon" class="lesson-symbol-img">
+              <h3>Lesson 6</h3>
+              <p>General vs. Specific Purpose Software</p>
+            </a>
+            <a href="lessons/lesson7-page.html" class="lesson-card interactive-element" aria-label="View Lesson 7: IPOS System Components">
+              <img src="images/symbol-lessons.jpg" alt="Lesson 7 Icon" class="lesson-symbol-img">
+              <h3>Lesson 7</h3>
+              <p>IPOS System Components</p>
+            </a>
+            <a href="lessons/lesson8-page.html" class="lesson-card interactive-element" aria-label="View Lesson 8: Utility Applications Overview">
+              <img src="images/symbol-lessons.jpg" alt="Lesson 8 Icon" class="lesson-symbol-img">
+              <h3>Lesson 8</h3>
+              <p>Utility Applications Overview</p>
+            </a>
+            <a href="lessons/lesson9-page.html" class="lesson-card interactive-element" aria-label="View Lesson 9: Student Information Database">
+              <img src="images/symbol-lessons.jpg" alt="Lesson 9 Icon" class="lesson-symbol-img">
+              <h3>Lesson 9</h3>
+              <p>Student Information Database</p>
+            </a>
+            <a href="lessons/lesson10-page.html" class="lesson-card interactive-element" aria-label="View Lesson 10: Network Topologies">
+              <img src="images/symbol-lessons.jpg" alt="Lesson 10 Icon" class="lesson-symbol-img">
+              <h3>Lesson 10</h3>
+              <p>Network Topologies</p>
+            </a>
+            <a href="lessons/lesson11-page.html" class="lesson-card interactive-element" aria-label="View Lesson 11: IT Ethics & Data Privacy">
+              <img src="images/symbol-lessons.jpg" alt="Lesson 11 Icon" class="lesson-symbol-img">
+              <h3>Lesson 11</h3>
+              <p>IT Ethics & Data Privacy</p>
+            </a>
+            <a href="lessons/lesson12-page.html" class="lesson-card interactive-element" aria-label="View Lesson 12: HTML Personal Webpage Structure">
+              <img src="images/symbol-lessons.jpg" alt="Lesson 12 Icon" class="lesson-symbol-img">
+              <h3>Lesson 12</h3>
+              <p>HTML Personal Webpage Structure</p>
+            </a>
+            <a href="lessons/lesson13-page.html" class="lesson-card interactive-element" aria-label="View Lesson 13: CSS Style Sheet">
+              <img src="images/symbol-lessons.jpg" alt="Lesson 13 Icon" class="lesson-symbol-img">
+              <h3>Lesson 13</h3>
+              <p>CSS Style Sheet</p>
+            </a>
+            <a href="lessons/lesson14-page.html" class="lesson-card interactive-element" aria-label="View Lesson 14: Generative AI Impact">
+              <img src="images/symbol-lessons.jpg" alt="Lesson 14 Icon" class="lesson-symbol-img">
+              <h3>Lesson 14</h3>
+              <p>Generative AI Impact</p>
+            </a>
+          </div>
+        </section>
+
+        <section id="contact" class="content-box">
+          <h2 class="section-title">Contact & Location</h2>
+          <div class="contact-info">
+            <div class="contact-card interactive-element">
+              <i class='bx bx-envelope' aria-hidden="true"></i>
+              <p>Email: <a href="mailto:echoquitoras@email.com" aria-label="Send email to echoquitoras@email.com">echoquitoras@email.com</a></p>
+            </div>
+            <div class="contact-card interactive-element">
+              <i class='bx bx-phone' aria-hidden="true"></i>
+              <p>Phone: <a href="tel:+639453956679" aria-label="Call +63 945 395 6679">+63 945 395 6679</a></p>
+            </div>
+            <div class="contact-card interactive-element">
+              <i class='bx bx-map' aria-hidden="true"></i>
+              <p>University of San Carlos - Talamban Campus<br>Nasipit, Talamban, Cebu City, 6000 Cebu</p>
+            </div>
+          </div>
+
+          <div class="social-links" role="list">
+            <a href="https://www.facebook.com/jericho.quitoras" target="_blank" rel="noopener noreferrer" aria-label="Visit my Facebook profile"><i class='bx bxl-facebook' aria-hidden="true"></i></a>
+            <a href="https://www.instagram.com/jiriko_q/" target="_blank" rel="noopener noreferrer" aria-label="Visit my Instagram profile"><i class='bx bxl-instagram' aria-hidden="true"></i></a>
+            <a href="https://x.com/ExpiredF1s74070" target="_blank" rel="noopener noreferrer" aria-label="Visit my Twitter profile"><i class='bx bxl-twitter' aria-hidden="true"></i></a>
+            <a href="https://www.linkedin.com/in/jericho-quitoras-335666308/" target="_blank" rel="noopener noreferrer" aria-label="Visit my LinkedIn profile"><i class='bx bxl-linkedin' aria-hidden="true"></i></a>
+          </div>
+        </section>
+      </div>
+  </div>
+
+  <script src="main.js"></script>
+  
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+  </script>
+
+</body>
+</html>

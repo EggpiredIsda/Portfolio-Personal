@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="../style.css">
+  <title>Lesson 13: CSS Style Sheet</title>
+</head>
+<body class="lesson-page">
+  <div class="lesson-container">
+    <a href="../index.html#lessons" class="back-button">
+      <i class='bx bx-arrow-back'></i>
+      Back to Lessons
+    </a>
+
+    <div class="lesson-header">
+      <div class="lesson-number">LESSON 13</div>
+      <h1 class="lesson-title">CSS Style Sheet</h1>
+      <p class="lesson-subtitle">Styling Webpages with Colors, Fonts, and Layouts</p>
+    </div>
+
+    <div class="lesson-main-content-wrapper">
+      
+      <img src="../images/madoka-full.png" alt="Madoka Kaname Lessons Side Image" class="lesson-side-image lesson-image-left">
+      
+      <div class="lesson-content">
+        <p>While HTML provides the structure and content of web pages, CSS (Cascading Style Sheets) brings them to life through visual design. CSS controls every visual aspect of a webpage—colors, fonts, spacing, positioning, animations, and responsive behavior across different devices. Understanding CSS is essential for any web developer, as it transforms plain HTML documents into engaging, professional-looking websites. Let's explore how to write a CSS stylesheet that styles a webpage with specific colors, font sizes, and layouts.</p>
+
+        <h2>Understanding CSS Syntax and Structure</h2>
+
+        <p>CSS consists of rules that tell browsers how to display HTML elements. Each rule includes a **selector** (pointing to the HTML element) and a **declaration block** (containing one or more declarations defining the style). A declaration is a property (e.g., `color`) and a value (e.g., `blue`) separated by a colon.</p>
+
+        <h3>CSS Selectors</h3>
+        <p>Selectors target elements based on their type, class, or ID.</p>
+
+        <div class="code-block">
+/* Element selector */
+p {
+  line-height: 1.6;
+}
+
+/* Class selector */
+.btn {
+  background-color: #3498db;
+  padding: 10px 20px;
+}
+
+/* ID selector */
+#main-header {
+  font-size: 3em;
+}
+        </div>
+
+        <p>An element selector targets all instances of an HTML tag (like all `<p>` tags). A class selector (preceded by `.`) targets all elements with that specific class attribute, and an ID selector (preceded by `#`) targets the unique element with that ID (e.g., a div with `id="intro"`).</p>
+
+        <h2>The CSS Box Model</h2>
+
+        <p>The Box Model is the foundational concept in CSS layout. Every HTML element is treated as a rectangular box with four layers, from the inside out:</p>
+        <ol>
+          <li>**Content:** The actual text or image.</li>
+          <li>**Padding:** Space between the content and the border (affects the box's size).</li>
+          <li>**Border:** A visible line surrounding the padding.</li>
+          <li>**Margin:** Clear space outside the border (pushes other elements away). </li>
+        </ol>
+
+        <p>Understanding this model is essential for controlling spacing and positioning elements accurately on the page.</p>
+
+        <div class="code-block">
+.card {
+  width: 300px;
+  border: 1px solid #ccc;
+  padding: 15px; /* Space inside the border */
+  margin: 20px; /* Space outside the border */
+}
+        </div>
+
+        <h2>Layout Techniques: Flexbox and Grid</h2>
+
+        <p>Modern CSS relies on powerful layout systems to arrange elements.</p>
+        <ul>
+          <li>**Flexbox (Flexible Box Layout):** Primarily used for one-dimensional layouts (a single row or a single column). It's excellent for aligning items within a navigation bar or centering content.</li>
+          <li>**Grid (CSS Grid Layout):** Used for two-dimensional layouts (rows and columns simultaneously). It is ideal for structuring entire pages, such as defining header, sidebar, and main content areas.</li>
+        </ul>
+
+        <p>The provided layout uses Grid to position the images and the content block side-by-side:</p>
+        <div class="code-block">
+.lesson-main-content-wrapper {
+  display: grid;
+  grid-template-columns: 200px 1fr 200px; /* Three columns: image, content, image */
+}
+        </div>
+
+        <h2>Conclusion</h2>
+
+        <p>CSS transforms plain HTML into visually appealing, professional web pages through precise control over colors, typography, spacing, and layout. Mastering CSS selectors, understanding the box model, utilizing modern layout techniques like Flexbox and Grid, and implementing responsive design principles enables the creation of websites that look great on any device. The combination of HTML structure and CSS styling forms the core of front-end development, essential skills for anyone building modern websites.</p>
+      </div>
+
+      <img src="../images/homura-full.png" alt="Homura Akemi Lessons Side Image" class="lesson-side-image lesson-image-right">
+
+    </div>
+  </div>
+</body>
+</html>
