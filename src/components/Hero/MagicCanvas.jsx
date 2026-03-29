@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 
 const colors = [
   'rgba(255, 0, 136, 0.9)',   // Pink
@@ -45,8 +45,6 @@ class Particle {
 }
 
 function MagicCanvas({ canvasRef }) {
-  const [particles, setParticles] = useState([])
-  const [mouse, setMouse] = useState({ x: undefined, y: undefined })
   const ctxRef = useRef(null)
   const animationFrameIdRef = useRef(null)
   const particlesRef = useRef([])
@@ -119,8 +117,6 @@ function MagicCanvas({ canvasRef }) {
 
         // Set new timeout
         mouseMoveTimeoutRef.current = setTimeout(() => {
-          setMouse({ x: event.clientX, y: event.clientY })
-
           const particleCount = Math.floor(Math.random() * 4) + 5
           for (let i = 0; i < particleCount; i++) {
             const randomColor = colors[Math.floor(Math.random() * colors.length)]

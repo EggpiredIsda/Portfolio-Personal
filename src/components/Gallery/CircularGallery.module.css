@@ -14,8 +14,7 @@
 }
 
 .canvas {
-  position: sticky;
-  top: 0;
+  position: relative;
   width: 100%;
   height: 100vh;
   background: linear-gradient(180deg, transparent 0%, rgba(13, 0, 26, 0.9) 100%);

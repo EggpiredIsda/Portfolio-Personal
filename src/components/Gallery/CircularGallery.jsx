@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, Suspense } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { useTexture, Text, RoundedBox } from '@react-three/drei'
 import * as THREE from 'three'
@@ -62,8 +62,15 @@ function GalleryItemMesh({
   scrollValue
 }) {
   const meshRef = useRef()
-  const texture = useTexture(item.image)
   const distortionAmount = useRef(0)
+  let texture
+
+  try {
+    texture = useTexture(item.image)
+  } catch (err) {
+    console.warn(`Failed to load texture for ${item.character}:`, err)
+    texture = null
+  }
 
   // Apply distortion based on scroll
   useFrame(() => {
@@ -112,8 +119,14 @@ function GalleryItemMesh({
 
 // 3D Scene component
 function GalleryScene({ scrollValue }) {
-  const { camera } = useThree()
+  const { camera, gl } = useThree()
   const groupRef = useRef()
+
+  // Ensure WebGL context is available
+  if (!gl) {
+    console.error('[CircularGallery] WebGL context not available')
+    return null
+  }
 
   useFrame(() => {
     if (groupRef.current) {
@@ -161,9 +174,9 @@ function CircularGallery({
   scrollSpeed = 1,
   scrollEase = 'easeOut'
 }) {
-  const [scrollVelocity, setScrollVelocity] = useState(0)
   const [scrollValue, setScrollValue] = useState(0)
   const scrollValueRef = useRef(0)
+  const velocityRef = useRef(0)
   const containerRef = useRef(null)
   const velocityDecay = 0.95
 
@@ -172,9 +185,9 @@ function CircularGallery({
     const handleWheel = (e) => {
       e.preventDefault()
 
-      // Update velocity
+      // Update velocity using ref only
       const delta = e.deltaY > 0 ? scrollSpeed : -scrollSpeed
-      setScrollVelocity((prev) => prev + delta)
+      velocityRef.current += delta
     }
 
     const container = containerRef.current
@@ -182,18 +195,15 @@ function CircularGallery({
       container.addEventListener('wheel', handleWheel, { passive: false })
     }
 
-    // Apply velocity decay
+    // Apply velocity decay - only use refs, no state in callback
     const velocityInterval = setInterval(() => {
-      setScrollVelocity((prev) => {
-        const newVelocity = prev * velocityDecay
-        if (Math.abs(newVelocity) < 0.1) return 0
-        return newVelocity
-      })
+      velocityRef.current *= velocityDecay
+      if (Math.abs(velocityRef.current) < 0.1) {
+        velocityRef.current = 0
+      }
 
-      setScrollValue((prev) => {
-        scrollValueRef.current = prev + scrollVelocity
-        return scrollValueRef.current
-      })
+      scrollValueRef.current += velocityRef.current
+      setScrollValue(scrollValueRef.current)
     }, 16)
 
     return () => {
@@ -224,10 +234,17 @@ function CircularGallery({
           gl={{
             antialias: true,
             alpha: true,
-            powerPreference: 'high-performance'
+            powerPreference: 'high-performance',
+            failIfMajorPerformanceCaveat: false
+          }}
+          onError={(error) => {
+            console.error('[CircularGallery] Canvas error:', error)
           }}
         >
           <GalleryScene scrollValue={scrollValueRef} />
+          <Suspense fallback={null}>
+            {/* Placeholder fallback */}
+          </Suspense>
         </Canvas>
 
         {/* Gallery info */}

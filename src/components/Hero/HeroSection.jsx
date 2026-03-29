@@ -38,8 +38,10 @@ function HeroSection() {
     container.addEventListener('mouseleave', handleMouseLeave)
 
     return () => {
-      container.removeEventListener('mousemove', handleMouseMove)
-      container.removeEventListener('mouseleave', handleMouseLeave)
+      if (container) {
+        container.removeEventListener('mousemove', handleMouseMove)
+        container.removeEventListener('mouseleave', handleMouseLeave)
+      }
     }
   }, [])
 

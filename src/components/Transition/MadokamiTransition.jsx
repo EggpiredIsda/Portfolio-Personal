@@ -1,16 +1,21 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useCallback } from 'react'
 import { motion } from 'framer-motion'
 import styles from './MadokamiTransition.module.css'
 
 function MadokamiTransition({ onComplete }) {
+  // Wrap onComplete in useCallback to maintain stable reference
+  const handleTransitionComplete = useCallback(() => {
+    onComplete()
+  }, [onComplete])
+
   useEffect(() => {
     // Auto-complete transition after 3 seconds
     const timer = setTimeout(() => {
-      onComplete()
+      handleTransitionComplete()
     }, 3000)
 
     return () => clearTimeout(timer)
-  }, [])
+  }, [handleTransitionComplete])
 
   return (
     <motion.div

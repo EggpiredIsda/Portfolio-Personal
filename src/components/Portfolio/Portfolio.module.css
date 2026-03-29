@@ -1,0 +1,400 @@
+/* Portfolio Section Styling */
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.sectionTitle {
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: #ff0088;
+  text-shadow: 0 0 20px rgba(255, 0, 136, 0.6);
+  margin-bottom: 15px;
+  font-family: 'Cinzel', serif;
+}
+
+.sectionSubtitle {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: #ffb3d9;
+  max-width: 600px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+/* About Section */
+.aboutSection {
+  padding: 80px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.aboutContent {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.aboutText {
+  line-height: 1.9;
+  font-size: 1.05rem;
+  color: #ffb3d9;
+}
+
+.aboutText p {
+  margin-bottom: 25px;
+  text-align: justify;
+}
+
+.aboutText p:first-child::first-letter {
+  font-size: 1.5em;
+  color: #ff0088;
+  font-weight: bold;
+}
+
+.skillsHighlight {
+  background: hsla(0, 0%, 100%, 0.08);
+  border-left: 4px solid #ff0088;
+  padding: 30px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+}
+
+.skillsHighlight h3 {
+  font-size: 1.3rem;
+  color: #f7a3ff;
+  margin-bottom: 20px;
+  font-family: 'Cinzel', serif;
+}
+
+.skillsList {
+  list-style: none;
+  padding: 0;
+}
+
+.skillsList li {
+  padding: 10px 0;
+  padding-left: 25px;
+  position: relative;
+  color: #ffb3d9;
+  border-bottom: 1px solid rgba(247, 163, 255, 0.1);
+}
+
+.skillsList li:last-child {
+  border-bottom: none;
+}
+
+.skillsList li::before {
+  content: '✨';
+  position: absolute;
+  left: 0;
+  color: #ff0088;
+}
+
+/* Lessons Grid Section */
+.lessonsSection {
+  padding: 80px 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.lessonsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+/* Lesson Card */
+.lessonCard {
+  position: relative;
+  background: hsla(0, 0%, 100%, 0.08);
+  border: 1px solid rgba(255, 0, 136, 0.2);
+  border-radius: 20px;
+  padding: 30px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  backdrop-filter: blur(10px);
+}
+
+.lessonCard:hover {
+  background: hsla(0, 0%, 100%, 0.15);
+  border-color: rgba(255, 0, 136, 0.5);
+  box-shadow:
+    0 0 20px rgba(255, 0, 136, 0.3),
+    0 0 40px rgba(247, 163, 255, 0.1),
+    inset 0 0 20px rgba(255, 179, 217, 0.05);
+}
+
+.cardIcon {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 10px rgba(255, 0, 136, 0.3));
+  transition: all 0.3s ease;
+}
+
+.lessonCard:hover .cardIcon {
+  filter: drop-shadow(0 0 20px rgba(255, 0, 136, 0.6)) brightness(1.1);
+  transform: scale(1.05);
+}
+
+.cardContent {
+  position: relative;
+  z-index: 2;
+}
+
+.cardNumber {
+  font-size: 0.9rem;
+  color: #f7a3ff;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.cardTitle {
+  font-size: 1.4rem;
+  color: #ff0088;
+  margin-bottom: 12px;
+  font-family: 'Cinzel', serif;
+  text-shadow: 0 0 10px rgba(255, 0, 136, 0.2);
+}
+
+.cardDesc {
+  font-size: 0.95rem;
+  color: #ffb3d9;
+  opacity: 0.85;
+  line-height: 1.6;
+}
+
+.cardGlow {
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255, 0, 136, 0.3), transparent);
+  border-radius: 50%;
+  filter: blur(40px);
+  z-index: 1;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+/* Contact Section */
+.contactSection {
+  padding: 80px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.contactCard {
+  background: hsla(0, 0%, 100%, 0.08);
+  border: 1px solid rgba(247, 163, 255, 0.2);
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.contactCard:hover {
+  background: hsla(0, 0%, 100%, 0.12);
+  border-color: rgba(255, 0, 136, 0.4);
+}
+
+.contactIcon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.contactCard h3 {
+  font-size: 1.2rem;
+  color: #ff0088;
+  margin-bottom: 12px;
+  font-family: 'Cinzel', serif;
+}
+
+.contactLink {
+  color: #ffb3d9;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.contactLink:hover {
+  color: #f7a3ff;
+  text-shadow: 0 0 10px rgba(255, 0, 136, 0.3);
+}
+
+.contactText {
+  color: #ffb3d9;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Social Links */
+.socialLinks {
+  text-align: center;
+  padding-top: 40px;
+  border-top: 2px solid rgba(247, 163, 255, 0.2);
+}
+
+.socialLinks h3 {
+  font-size: 1.3rem;
+  color: #ff0088;
+  margin-bottom: 25px;
+  font-family: 'Cinzel', serif;
+}
+
+.socialGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.socialLink {
+  background: linear-gradient(135deg, rgba(255, 0, 136, 0.1), rgba(247, 163, 255, 0.1));
+  border: 2px solid rgba(247, 163, 255, 0.3);
+  color: #ffb3d9;
+  padding: 12px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-family: 'Cinzel', serif;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.socialLink:hover {
+  background: linear-gradient(135deg, rgba(255, 0, 136, 0.2), rgba(247, 163, 255, 0.2));
+  border-color: rgba(255, 0, 136, 0.6);
+  box-shadow: 0 0 15px rgba(255, 0, 136, 0.3);
+  transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .aboutContent {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .lessonsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .aboutSection,
+  .lessonsSection,
+  .contactSection {
+    padding: 50px 20px;
+  }
+
+  .aboutText {
+    font-size: 1rem;
+  }
+
+  .skillsList li {
+    padding: 8px 0;
+    padding-left: 20px;
+  }
+
+  .lessonsGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .sectionTitle {
+    font-size: 1.6rem;
+  }
+
+  .sectionSubtitle {
+    font-size: 0.95rem;
+  }
+
+  .contactGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .socialGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .aboutSection,
+  .lessonsSection,
+  .contactSection {
+    padding: 40px 15px;
+  }
+
+  .sectionTitle {
+    font-size: 1.3rem;
+  }
+
+  .sectionSubtitle {
+    font-size: 0.85rem;
+  }
+
+  .aboutText {
+    font-size: 0.9rem;
+    text-align: left;
+  }
+
+  .aboutText p {
+    margin-bottom: 15px;
+  }
+
+  .skillsHighlight {
+    padding: 20px;
+  }
+
+  .lessonCard {
+    padding: 20px;
+  }
+
+  .cardTitle {
+    font-size: 1.1rem;
+  }
+
+  .cardDesc {
+    font-size: 0.9rem;
+  }
+
+  .contactCard h3 {
+    font-size: 1.05rem;
+  }
+
+  .contactText {
+    font-size: 0.9rem;
+  }
+
+  .socialGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .socialLink {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+}
