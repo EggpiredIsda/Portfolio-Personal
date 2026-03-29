@@ -202,7 +202,7 @@ function CircularGallery({
         container.removeEventListener('wheel', handleWheel)
       }
     }
-  }, [scrollSpeed, scrollVelocity])
+  }, [scrollSpeed])
 
   return (
     <div className={styles.galleryContainer} ref={containerRef}>

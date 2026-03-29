@@ -51,77 +51,117 @@ function MagicCanvas({ canvasRef }) {
   const animationFrameIdRef = useRef(null)
   const particlesRef = useRef([])
   const isAnimatingRef = useRef(true)
+  const mouseMoveTimeoutRef = useRef(null)
+  const mouseMoveHandlerRef = useRef(null)
 
   // Initialize canvas
   useEffect(() => {
     const canvas = canvasRef.current
-    if (!canvas) return
+    if (!canvas) {
+      console.error('[MagicCanvas] Canvas ref is null')
+      return
+    }
 
     const ctx = canvas.getContext('2d')
+    if (!ctx) {
+      console.error('[MagicCanvas] Failed to get 2D context from canvas')
+      return
+    }
+
     ctxRef.current = ctx
 
     const initCanvas = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
+      try {
+        canvas.width = window.innerWidth
+        canvas.height = window.innerHeight
+      } catch (err) {
+        console.error('[MagicCanvas] Error initializing canvas dimensions:', err)
+      }
     }
 
     initCanvas()
 
     const animate = () => {
-      if (!isAnimatingRef.current) {
-        animationFrameIdRef.current = null
-        return
-      }
-
-      animationFrameIdRef.current = requestAnimationFrame(animate)
-
-      ctx.fillStyle = 'rgba(13, 0, 26, 0.1)'
-      ctx.fillRect(0, 0, canvas.width, canvas.height)
-
-      // Update and draw particles
-      for (let i = particlesRef.current.length - 1; i >= 0; i--) {
-        particlesRef.current[i].update()
-        particlesRef.current[i].draw(ctx)
-
-        if (particlesRef.current[i].isDead()) {
-          particlesRef.current.splice(i, 1)
+      try {
+        if (!isAnimatingRef.current) {
+          animationFrameIdRef.current = null
+          return
         }
+
+        animationFrameIdRef.current = requestAnimationFrame(animate)
+
+        ctx.fillStyle = 'rgba(13, 0, 26, 0.1)'
+        ctx.fillRect(0, 0, canvas.width, canvas.height)
+
+        // Update and draw particles
+        for (let i = particlesRef.current.length - 1; i >= 0; i--) {
+          particlesRef.current[i].update()
+          particlesRef.current[i].draw(ctx)
+
+          if (particlesRef.current[i].isDead()) {
+            particlesRef.current.splice(i, 1)
+          }
+        }
+      } catch (err) {
+        console.error('[MagicCanvas] Error in animation loop:', err)
       }
     }
 
     animate()
 
     // Mouse move handler
-    let mouseMoveTimeout
-    canvas.addEventListener('mousemove', (event) => {
-      clearTimeout(mouseMoveTimeout)
-      mouseMoveTimeout = setTimeout(() => {
-        setMouse({ x: event.clientX, y: event.clientY })
-
-        const particleCount = Math.floor(Math.random() * 4) + 5
-        for (let i = 0; i < particleCount; i++) {
-          const randomColor = colors[Math.floor(Math.random() * colors.length)]
-          particlesRef.current.push(
-            new Particle(event.clientX, event.clientY, randomColor)
-          )
+    mouseMoveHandlerRef.current = (event) => {
+      try {
+        // Clear previous timeout
+        if (mouseMoveTimeoutRef.current) {
+          clearTimeout(mouseMoveTimeoutRef.current)
         }
-      }, 16)
-    })
+
+        // Set new timeout
+        mouseMoveTimeoutRef.current = setTimeout(() => {
+          setMouse({ x: event.clientX, y: event.clientY })
+
+          const particleCount = Math.floor(Math.random() * 4) + 5
+          for (let i = 0; i < particleCount; i++) {
+            const randomColor = colors[Math.floor(Math.random() * colors.length)]
+            particlesRef.current.push(
+              new Particle(event.clientX, event.clientY, randomColor)
+            )
+          }
+        }, 16)
+      } catch (err) {
+        console.error('[MagicCanvas] Error in mouse move handler:', err)
+      }
+    }
+
+    canvas.addEventListener('mousemove', mouseMoveHandlerRef.current)
 
     // Handle resize
     const handleResize = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
+      try {
+        canvas.width = window.innerWidth
+        canvas.height = window.innerHeight
+      } catch (err) {
+        console.error('[MagicCanvas] Error handling resize:', err)
+      }
     }
 
     window.addEventListener('resize', handleResize)
 
     return () => {
       window.removeEventListener('resize', handleResize)
-      canvas.removeEventListener('mousemove', mouseMoveTimeout)
+      // Properly remove the event listener using the stored function reference
+      if (mouseMoveHandlerRef.current) {
+        canvas.removeEventListener('mousemove', mouseMoveHandlerRef.current)
+      }
+      // Clear any pending timeout
+      if (mouseMoveTimeoutRef.current) {
+        clearTimeout(mouseMoveTimeoutRef.current)
+      }
       if (animationFrameIdRef.current) {
         cancelAnimationFrame(animationFrameIdRef.current)
       }
+      isAnimatingRef.current = false
     }
   }, [])
 
