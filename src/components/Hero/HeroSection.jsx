@@ -10,8 +10,10 @@ function HeroSection() {
   const canvasRef = useRef(null)
   const containerRef = useRef(null)
   const [showTransition, setShowTransition] = useState(false)
+  const [showAura, setShowAura] = useState(false)
+  const [auraPos, setAuraPos] = useState({ x: 0, y: 0 })
   const navigate = useNavigate()
-  const [auraGlow, setAuraGlow] = useState(null)
+  const auraRef = useRef(null)
 
   // Handle Madokami transition completion
   const handleTransitionComplete = () => {
@@ -24,24 +26,12 @@ function HeroSection() {
     if (!container) return
 
     const handleMouseMove = (e) => {
-      if (!auraGlow) {
-        const aura = document.createElement('div')
-        aura.className = styles.aura
-        container.appendChild(aura)
-        setAuraGlow(aura)
-      }
-
-      if (auraGlow) {
-        auraGlow.style.left = `${e.clientX - 200}px`
-        auraGlow.style.top = `${e.clientY - 200}px`
-        auraGlow.style.opacity = '1'
-      }
+      setShowAura(true)
+      setAuraPos({ x: e.clientX - 200, y: e.clientY - 200 })
     }
 
     const handleMouseLeave = () => {
-      if (auraGlow) {
-        auraGlow.style.opacity = '0'
-      }
+      setShowAura(false)
     }
 
     container.addEventListener('mousemove', handleMouseMove)
@@ -51,7 +41,7 @@ function HeroSection() {
       container.removeEventListener('mousemove', handleMouseMove)
       container.removeEventListener('mouseleave', handleMouseLeave)
     }
-  }, [auraGlow])
+  }, [])
 
   return (
     <>
@@ -62,6 +52,20 @@ function HeroSection() {
       <section ref={containerRef} className={styles.heroSection}>
         <div className={styles.starfield} id="starfield"></div>
         <MagicCanvas canvasRef={canvasRef} />
+
+        {/* Aura element - conditional rendering */}
+        {showAura && (
+          <div
+            ref={auraRef}
+            className={styles.aura}
+            style={{
+              left: `${auraPos.x}px`,
+              top: `${auraPos.y}px`,
+              opacity: 1,
+              transition: 'opacity 0.5s ease'
+            }}
+          />
+        )}
 
         <div className={styles.heroTitleTopLeft}>
           <motion.h1

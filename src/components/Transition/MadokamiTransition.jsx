@@ -10,7 +10,7 @@ function MadokamiTransition({ onComplete }) {
     }, 3000)
 
     return () => clearTimeout(timer)
-  }, [onComplete])
+  }, [])
 
   return (
     <motion.div
