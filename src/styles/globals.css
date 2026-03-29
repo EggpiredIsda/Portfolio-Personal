@@ -1,0 +1,87 @@
+:root {
+  --color-pink: #ff0088;
+  --color-pink-light: #ffb3d9;
+  --color-purple: #a300a3;
+  --color-lavender: #f7a3ff;
+  --color-dark: #0d001a;
+  --color-white: #ffffff;
+
+  font-family: 'EB Garamond', serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: var(--color-pink-light);
+  background-color: var(--color-dark);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  position: relative;
+  background: linear-gradient(135deg, #0d001a 0%, #1a0033 50%, #0d001a 100%);
+}
+
+button {
+  font-family: 'Cinzel', serif;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+}
+
+/* Remove scrollbar for better UI */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(13, 0, 26, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-pink);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-lavender);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background-color: var(--color-pink);
+  color: var(--color-white);
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--color-lavender);
+  outline-offset: 2px;
+}

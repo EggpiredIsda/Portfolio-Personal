@@ -1,0 +1,207 @@
+.portfolioPage {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0d001a 0%, #1a0033 50%, #0d001a 100%);
+  color: #ffb3d9;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(13, 0, 26, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(247, 163, 255, 0.2);
+  padding: 20px 40px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.backButton {
+  background: linear-gradient(135deg, #ff0088, #f7a3ff);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.backButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 0, 136, 0.6);
+}
+
+.logo h1 {
+  font-size: 2.5rem;
+  color: #ff0088;
+  text-shadow: 0 0 20px rgba(255, 0, 136, 0.5);
+  margin: 0;
+}
+
+.main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 80px 40px;
+}
+
+.section {
+  position: relative;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  color: #ff0088;
+  margin-bottom: 40px;
+  text-shadow: 0 0 15px rgba(255, 0, 136, 0.3);
+  text-align: center;
+}
+
+.comingSoon {
+  text-align: center;
+  padding: 80px 40px;
+  background: hsla(0, 0%, 100%, 0.08);
+  border-radius: 20px;
+  border: 1px solid rgba(247, 163, 255, 0.2);
+  margin: 40px 0;
+}
+
+.gemIcon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.comingSoon h3 {
+  font-size: 2rem;
+  color: #ff0088;
+  margin-bottom: 15px;
+}
+
+.comingSoon p {
+  font-size: 1.1rem;
+  color: #ffb3d9;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+.ctaButton {
+  background: linear-gradient(135deg, #ff0088, #f7a3ff);
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-family: 'Cinzel', serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(255, 0, 136, 0.4);
+}
+
+.ctaButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 30px rgba(255, 0, 136, 0.6);
+}
+
+.contentInfo {
+  background: hsla(283, 90%, 50%, 0.1);
+  border-left: 4px solid #a300a3;
+  padding: 25px 30px;
+  border-radius: 10px;
+  margin-top: 40px;
+}
+
+.contentInfo h4 {
+  color: #f7a3ff;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.contentInfo ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.contentInfo li {
+  padding: 8px 0;
+  padding-left: 25px;
+  position: relative;
+  color: #ffb3d9;
+}
+
+.contentInfo li::before {
+  content: '✨';
+  position: absolute;
+  left: 0;
+  color: #f7a3ff;
+}
+
+.footer {
+  text-align: center;
+  padding: 40px;
+  border-top: 1px solid rgba(247, 163, 255, 0.2);
+  color: #ffb3d9;
+  opacity: 0.8;
+}
+
+.theme {
+  font-style: italic;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 15px 20px;
+  }
+
+  .logo {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .logo h1 {
+    font-size: 1.8rem;
+  }
+
+  .main {
+    padding: 40px 20px;
+  }
+
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+
+  .comingSoon {
+    padding: 40px 20px;
+  }
+
+  .gemIcon {
+    font-size: 3rem;
+  }
+
+  .comingSoon h3 {
+    font-size: 1.5rem;
+  }
+
+  .contentInfo {
+    padding: 20px;
+  }
+}
