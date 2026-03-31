@@ -1,7 +1,7 @@
 .galleryContainer {
   position: relative;
   width: 100%;
-  min-height: 150vh;
+  height: 100vh;
   background: linear-gradient(180deg, #0d001a 0%, #1a0033 50%, #0d001a 100%);
   overflow-x: hidden;
   overflow-y: auto;
@@ -10,21 +10,27 @@
 .galleryContent {
   position: relative;
   width: 100%;
-  padding: 60px 20px;
+  height: 100%;
 }
 
 .canvas {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background: linear-gradient(180deg, transparent 0%, rgba(13, 0, 26, 0.9) 100%);
 }
 
 .galleryInfo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
   text-align: center;
   padding: 80px 20px 40px;
-  position: relative;
-  z-index: 10;
+  z-index: 20;
+  pointer-events: none;
 }
 
 .galleryTitle {
@@ -105,24 +111,22 @@
 }
 
 @media (max-width: 1024px) {
-  .itemsList {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    padding: 40px 15px;
+  .galleryInfo {
+    padding: 60px 15px 30px;
   }
 
-  .thumbnail {
-    height: 250px;
+  .galleryTitle {
+    font-size: 2.2rem;
+  }
+
+  .gallerySubtitle {
+    font-size: 1.1rem;
   }
 }
 
 @media (max-width: 768px) {
   .galleryContainer {
-    min-height: 200vh;
-  }
-
-  .canvas {
-    height: 80vh;
+    height: 100vh;
   }
 
   .galleryInfo {
@@ -136,46 +140,19 @@
   .gallerySubtitle {
     font-size: 1rem;
   }
-
-  .itemsList {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
-    padding: 30px 10px;
-  }
-
-  .itemCard {
-    padding: 15px;
-  }
-
-  .thumbnail {
-    height: 200px;
-    margin-bottom: 10px;
-  }
-
-  .itemName {
-    font-size: 1rem;
-  }
-
-  .itemDesc {
-    font-size: 0.85rem;
-  }
 }
 
 @media (max-width: 480px) {
-  .galleryContainer {
-    min-height: 250vh;
+  .galleryInfo {
+    padding: 30px 10px 20px;
   }
 
-  .canvas {
-    height: 60vh;
+  .galleryTitle {
+    font-size: 1.5rem;
   }
 
-  .itemsList {
-    grid-template-columns: 1fr;
-  }
-
-  .thumbnail {
-    height: 180px;
+  .gallerySubtitle {
+    font-size: 0.9rem;
   }
 }
 

@@ -1,20 +1,29 @@
-import React, { useEffect, useCallback } from 'react'
+import React, { useEffect, useCallback, useRef } from 'react'
 import { motion } from 'framer-motion'
 import styles from './MadokamiTransition.module.css'
 
 function MadokamiTransition({ onComplete }) {
+  const timerRef = useRef(null)
+
   // Wrap onComplete in useCallback to maintain stable reference
   const handleTransitionComplete = useCallback(() => {
+    if (timerRef.current) {
+      clearTimeout(timerRef.current)
+    }
     onComplete()
   }, [onComplete])
 
   useEffect(() => {
     // Auto-complete transition after 3 seconds
-    const timer = setTimeout(() => {
+    timerRef.current = setTimeout(() => {
       handleTransitionComplete()
     }, 3000)
 
-    return () => clearTimeout(timer)
+    return () => {
+      if (timerRef.current) {
+        clearTimeout(timerRef.current)
+      }
+    }
   }, [handleTransitionComplete])
 
   return (
@@ -53,7 +62,7 @@ function MadokamiTransition({ onComplete }) {
         }}
       />
 
-      {/* Bobbing animation */}
+      {/* Bobbing animation - only for 1.7 to 3 seconds */}
       <motion.div
         className={styles.bobContainer}
         animate={{
@@ -62,7 +71,7 @@ function MadokamiTransition({ onComplete }) {
         transition={{
           duration: 1.5,
           delay: 1.7,
-          repeat: Infinity,
+          repeat: 1,
           ease: 'easeInOut'
         }}
       />

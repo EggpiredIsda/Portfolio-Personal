@@ -63,14 +63,9 @@ function GalleryItemMesh({
 }) {
   const meshRef = useRef()
   const distortionAmount = useRef(0)
-  let texture
 
-  try {
-    texture = useTexture(item.image)
-  } catch (err) {
-    console.warn(`Failed to load texture for ${item.character}:`, err)
-    texture = null
-  }
+  // Always call hooks unconditionally at top level - no try/catch
+  const texture = useTexture(item.image)
 
   // Apply distortion based on scroll
   useFrame(() => {
@@ -182,12 +177,32 @@ function CircularGallery({
 
   // Handle scroll with momentum
   useEffect(() => {
+    let animationId = null
+
     const handleWheel = (e) => {
       e.preventDefault()
 
-      // Update velocity using ref only
+      // Update velocity
       const delta = e.deltaY > 0 ? scrollSpeed : -scrollSpeed
       velocityRef.current += delta
+
+      // Start/restart animation loop
+      if (animationId) cancelAnimationFrame(animationId)
+
+      const animate = () => {
+        velocityRef.current *= velocityDecay
+
+        if (Math.abs(velocityRef.current) < 0.01) {
+          velocityRef.current = 0
+          return // Stop animation
+        }
+
+        scrollValueRef.current += velocityRef.current
+        setScrollValue(scrollValueRef.current)
+        animationId = requestAnimationFrame(animate)
+      }
+
+      animationId = requestAnimationFrame(animate)
     }
 
     const container = containerRef.current
@@ -195,19 +210,8 @@ function CircularGallery({
       container.addEventListener('wheel', handleWheel, { passive: false })
     }
 
-    // Apply velocity decay - only use refs, no state in callback
-    const velocityInterval = setInterval(() => {
-      velocityRef.current *= velocityDecay
-      if (Math.abs(velocityRef.current) < 0.1) {
-        velocityRef.current = 0
-      }
-
-      scrollValueRef.current += velocityRef.current
-      setScrollValue(scrollValueRef.current)
-    }, 16)
-
     return () => {
-      clearInterval(velocityInterval)
+      if (animationId) cancelAnimationFrame(animationId)
       if (container) {
         container.removeEventListener('wheel', handleWheel)
       }
@@ -216,13 +220,21 @@ function CircularGallery({
 
   return (
     <div className={styles.galleryContainer} ref={containerRef}>
+      {/* Title and subtitle overlay */}
+      <div className={styles.galleryInfo}>
+        <h2 className={styles.galleryTitle}>Character Showcase</h2>
+        <p className={styles.gallerySubtitle}>
+          Scroll to explore the magical girls of Puella Magi Madoka Magica
+        </p>
+      </div>
+
+      {/* 3D Canvas - MAIN FOCUS */}
       <motion.div
         className={styles.galleryContent}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.5 }}
       >
-        {/* 3D Canvas */}
         <Canvas
           className={styles.canvas}
           camera={{
@@ -246,31 +258,6 @@ function CircularGallery({
             {/* Placeholder fallback */}
           </Suspense>
         </Canvas>
-
-        {/* Gallery info */}
-        <div className={styles.galleryInfo}>
-          <h2 className={styles.galleryTitle}>Character Showcase</h2>
-          <p className={styles.gallerySubtitle}>
-            Scroll to explore the magical girls of Puella Magi Madoka Magica
-          </p>
-        </div>
-
-        {/* Character items display */}
-        <div className={styles.itemsList}>
-          {galleryItems.map((item, index) => (
-            <motion.div
-              key={item.id}
-              className={styles.itemCard}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-            >
-              <img src={item.image} alt={item.character} className={styles.thumbnail} />
-              <h3 className={styles.itemName}>{item.text}</h3>
-              <p className={styles.itemDesc}>{item.description}</p>
-            </motion.div>
-          ))}
-        </div>
       </motion.div>
     </div>
   )
